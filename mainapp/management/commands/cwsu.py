@@ -1,8 +1,5 @@
-from typing import List
-
 from django.core.management.base import BaseCommand
 from django.contrib.auth.models import User
-from mainapp.models import Author
 
 
 class Command(BaseCommand):
