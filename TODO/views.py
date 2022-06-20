@@ -3,7 +3,7 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework import mixins, viewsets
 from .models import User, Project, Todo
-from .serializers import UserModelSerializer, ProjectModelSerializer, TodoModelSerializer
+from .serializers import UserModelSerializer, ProjectModelSerializer, TodoModelSerializer, UserAdditionModelSerializer
 from .filters import ProjectFilter, TodoFilter
 
 
@@ -11,6 +11,11 @@ class UserCustomViewSet(mixins.UpdateModelMixin, mixins.RetrieveModelMixin, mixi
                         viewsets.GenericViewSet):
     queryset = User.objects.all()
     serializer_class = UserModelSerializer
+
+    def get_serializer_class(self):
+        if self.request.version == '2.0':
+            return UserAdditionModelSerializer
+        return UserModelSerializer
 
 
 class ProjectPaginator(LimitOffsetPagination):

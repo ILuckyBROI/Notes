@@ -28,13 +28,14 @@ class ArticleModelViewSet(ModelViewSet):
 
 
 class MyAPIView(APIView):
-# class MyAPIView(CreateAPIView, ListAPIView):
+    # class MyAPIView(CreateAPIView, ListAPIView):
     # APIView
     def get(self, request):
         return Response({'date': 'GET SUCCESS'})
 
     def post(self, request):
         return Response({'date': 'POST SUCCESS'})
+
     renderer_classes = [JSONRenderer]
     # queryset = Author.object.all()
     # serializer_class = AuthorModelSerializer
