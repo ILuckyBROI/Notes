@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework',
     'rest_framework.authtoken',
+    'graphene_django',
     'mainapp',
     'corsheaders',
     'TODO',
@@ -145,3 +146,6 @@ REST_FRAMEWORK = {
 
 }
 
+GRAPHENE = {
+    "SCHEMA": "notes.schema.schema"
+}
